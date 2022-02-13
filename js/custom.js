@@ -364,6 +364,7 @@ $(document).ready(function () {
 		autoplayHoverPause: true,
 		smartSpeed: 500,
 		loop: true,
+		singleItem: true,
 		responsiveClass: true,
 		items: 1,
 		margin: 0,
@@ -373,10 +374,11 @@ $(document).ready(function () {
 
 	// Team slider
 	$(".team-slider").owlCarousel({
-		autoplay: false,
+		autoplay: true,
 		autoplayHoverPause: true,
 		smartSpeed: 500,
-		loop: true,
+		loop: false,
+		singleItem: true,
 		responsiveClass: true,
 		items: 4,
 		nav: true,
@@ -404,10 +406,11 @@ $(document).ready(function () {
 
 	// Similar Item Slider
 	$(".sim-slider").owlCarousel({
-		autoplay: false,
+		autoplay: true,
 		autoplayHoverPause: true,
 		smartSpeed: 500,
-		loop: true,
+		singleItem: true,
+		loop: false,
 		responsiveClass: true,
 		items: 4,
 		nav: true,
@@ -415,7 +418,7 @@ $(document).ready(function () {
 			'<i class="fa fa-angle-left"></i>',
 			'<i class="fa fa-angle-right"></i>',
 		],
-		margin: 25,
+		margin: 12,
 		dots: false,
 		responsive: {
 			0: {
@@ -439,10 +442,28 @@ $(document).ready(function () {
 		$(".cart-overlay").addClass("visible");
 		$(".cart-body").addClass("open");
 	});
-	$(".close-cart, .cart-overlay").on("click", function (e) {
+
+	$(".categoryViewer-btn").on("click", function (e) {
+		e.preventDefault();
+		$(".cart-overlay").addClass("visible");
+		$(".categoryViewer").addClass("open");
+	});
+
+	$(".footerDrawer-btn").on("click", function (e) {
+		e.preventDefault();
+		$(".cart-overlay").addClass("visible");
+		// $(".footerDrawer").addClass("open");
+		$(".footerDrawer").css({ bottom: "0" });
+	});
+
+	$(".close-cart, .close-cat, .cart-overlay").on("click", function (e) {
 		e.preventDefault();
 		$(".cart-overlay").removeClass("visible");
 		$(".cart-body").removeClass("open");
+		$(".categoryViewer").removeClass("open");
+		$(".footerDrawer").css({ bottom: "-850px" });
+		$(".showResult").html("");
+		$(".showResult").hide();
 	});
 
 	/***** WOW Js *****/
@@ -544,10 +565,14 @@ $(document).ready(function () {
 
 	/***** Back To Top *****/
 	$(window).scroll(function () {
-		if ($(this).scrollTop() > 700) {
+		if ($(this).scrollTop() > 500) {
 			$(".back-to-top").fadeIn();
+			if (screen.width > 500) {
+				$(".footerDrawer-btn").fadeIn();
+			}
 		} else {
 			$(".back-to-top").fadeOut();
+			$(".footerDrawer-btn").fadeOut();
 		}
 	});
 	$(".back-to-top").on("click", function () {
