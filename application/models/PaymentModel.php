@@ -170,32 +170,7 @@ class PaymentModel extends CI_Model
 			return true;
 		} else {
 			return false;
-		}
-
-
-		// 		$config = array(
-		// 			'protocol' => $protocol,
-		// 			'smtp_host' => 'ssl://smtp.googlemail.com',
-		// 			'smtp_port' => 465,
-		// 			'smtp_user' => 'chbluxuryikeja@gmail.com',
-		// 			'smtp_pass' => 'CHBLuxury@Ikeja12345',
-		// 			'smtp_timeout' => 10,
-		// 			'mailtype' => 'html',
-		// 			'starttls'  => true,
-		// 			'newline'   => "\r\n",
-		// 		);
-		// 		$this->load->library('email');
-		// 		$this->email->initialize($config);
-		// 		$this->email->from("CHB LUXURY");
-		// 		$this->email->to($email);
-		// 		$this->email->subject($subject);
-		// 		$this->email->message($mailToSend);
-		// 		$flag = $this->email->send();
-		// 		if ($flag) {
-		// 			return $flag;
-		// 		} else {
-		// 			return false;
-		// 		}
+		} 
 	}
 
 
