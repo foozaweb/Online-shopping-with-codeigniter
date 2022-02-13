@@ -138,8 +138,8 @@ class PaymentModel extends CI_Model
 			'protocol' => 'mail', //sendmail or smtp
 			'smtp_host' => 'ssl://smtp.googlemail.com',
 			'smtp_port' => '465',
-			'smtp_user' => 'chbluxuryikeja@gmail.com',
-			'smtp_pass' => 'CHBLuxury@Ikeja12345',
+			'smtp_user' => 'your@gmail.com',
+			'smtp_pass' => 'gmail_password',
 			'smtp_timeout' => 50,
 			'mailtype' => 'html',
 			'starttls'  => true,
